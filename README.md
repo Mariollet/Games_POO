@@ -1,1 +1,3 @@
-mini_jeu_POO
+Games_POO Project
+Pair-Programing : Alex, Augustin, Thibault
+-Montpelier

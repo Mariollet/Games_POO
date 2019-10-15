@@ -1,19 +1,19 @@
-class Player
+class Player #Nouvelle classe (Joueurs)
  attr_accessor :player_name, :life_points
 
- 	def initialize(player_name, life_points = 10)
+ 	def initialize(player_name, life_points = 10) #Nouvelle Instance (joueur)
  		@player_name = player_name.to_s
  		@life_points = life_points.to_i
  	end
 
- 	def show_state
+ 	def show_state # Stats
  		if @life_points < 0 
  			@life_points = 0
  		end
  		" #{self.player_name} a #{self.life_points} points de vie"
  	end
 
- 	def gets_damage(damage_number)
+ 	def gets_damage(damage_number) #Dégats
  		self.life_points -= damage_number.to_i
  		puts " Il lui inflige #{damage_number} points de dommages"
  		if self.life_points <= 0
@@ -21,19 +21,17 @@ class Player
  		end
  	end
 
- 	def attacks(player)
- 		puts " =========================================="
+ 	def attacks(player) #Attaque
  		puts " #{self.player_name} attaque #{player.player_name} !"
  		player.gets_damage(compute_damage)
- 		puts " =========================================="
  	end
 
-  	def compute_damage
+  	def compute_damage #Random Dégats
     	return rand(1..6)
   	end
 end
 
-class HumanPlayer < Player
+class HumanPlayer < Player #Class HumanPlayer avc les attribut de Player
  attr_accessor :weapon_level
 
  	def initialize(player_name, life_points = 100, weapon_level = 1)
@@ -49,7 +47,7 @@ class HumanPlayer < Player
     	super * @weapon_level
   	end
 
-  	def search_weapon
+  	def search_weapon #chercher une arme random
   		new_weapon_level = rand(1..6)
   		puts " Tu as trouvé une arme de niveau #{new_weapon_level}"
   		if new_weapon_level > self.weapon_level
@@ -60,7 +58,7 @@ class HumanPlayer < Player
   		end
   	end
 
-  	def search_health_pack
+  	def search_health_pack #chercher du soins ramdom
   		new_health = rand(1..6)
   		if new_health == 1
   			puts " Tu n'as rien trouvé..."
