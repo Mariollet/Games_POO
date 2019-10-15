@@ -17,11 +17,15 @@ puts "      =================================----\n\n"
 puts " Quel est ton nom gladiateur ?"
 print ">"
 player_name = gets.chomp
-if player_name.size > 10
+if player_name == "Chuck Norris"
+	puts ' Oh .. Merde ...'
+end
+if player_name.size > 12
 	puts " Trop longt, fait plus court !\nDe toute façon, ça va être rapide..."
 	print "> "
 	player_name = gets.chomp
-elsif player_name.size < 1
+end
+if player_name.size < 1
 	player_name = "Le Vengeur Masquey"
 end
 player1 = HumanPlayer.new(player_name)
